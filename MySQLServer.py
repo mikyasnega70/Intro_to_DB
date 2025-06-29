@@ -15,18 +15,18 @@ def create_database():
             cursor = connection.cursor()
             
             create_db_query = "CREATE DATABASE IF NOT EXISTS alx_book_store"
-    
+            
             cursor.execute(create_db_query)
             
             print("Database 'alx_book_store' created successfully or already exists.")
-        
-    except Error as e:
+    
+    except mysql.connector.Error as e:
         print(f"Error: {e}")
     
     finally:
         if connection.is_connected():
-            cursor.close()
-            connection.close()
+            cursor.close()  
+            connection.close()  
             print("MySQL connection is closed.")
 
 if __name__ == "__main__":
